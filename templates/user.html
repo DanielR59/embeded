@@ -1,0 +1,29 @@
+{% extends "components/layout.html" %} {% block title %}Profile{% endblock %} {%
+block content %}
+<div class="row m-sm-5 m-3">
+    <h1 class="col">FastAPI Profile User</h1>
+</div>
+
+<div class="row justify-content-center">
+    <div class="card col-5" style="width: 18rem">
+        <div class="card-body">
+            <h5 class="card-title">Hi <mark>{{ data_user[3] }}</mark></h5>
+            <p class="card-text">This is a list with your data.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Firstname: <mark>{{ data_user[1] }}</mark></li>
+            <li class="list-group-item">Lastname: <mark>{{ data_user[2] }}</mark></li>
+            <li class="list-group-item">Username: <mark>{{ data_user[5] }}</mark></li>
+        </ul>
+    </div>
+</div>
+
+<div>
+
+    <script type='module'
+        src='https://10ax.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script>
+    <tableau-viz id='tableau-viz' src='https://10ax.online.tableau.com/t/danieldev/views/HistorialCetes/HistoricoCetes'
+        width='1000' height='840' hide-tabs toolbar='bottom'
+        token="eyJhbGciOiJIUzI1NiIsImlzcyI6IjFlMmJjZWJhLWE2YjMtNDI2Ny04OTAzLTM1YzA5YTI3MDVjZCIsImtpZCI6ImFjNjJkMTZjLWU4MzUtNDdjMy1iZDA5LTZiOWQ4M2ZhODQxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzUwMzUyMjAsImp0aSI6IjA4ZjQxMTNlLTY4YTQtNDRlZC1hNTY2LTc4YWIxZmY4YTJiNyIsImF1ZCI6InRhYmxlYXUiLCJzdWIiOiJqb3NlLnJvc2FzQGRhdGF0ZWFtLm14Iiwic2NwIjpbInRhYmxlYXU6dmlld3M6ZW1iZWQiXX0.GI-jZAY876dbA3rfHGOMzwFcvbgjWVyAgct3EqMQsF4"></tableau-viz>
+</div>
+{% endblock %}
