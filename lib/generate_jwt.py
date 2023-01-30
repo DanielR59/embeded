@@ -7,8 +7,6 @@ from .utils import load_keys
 keys = load_keys('keys.json')
 
 def encode_user_data_to_jwt(data_user : str) -> str:
-    print(data_user)
-
     return jwt.encode(
 	{
 		"exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=5),

@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from controller.user import User
 from lib.check_password import check_user
+from lib.generate_jwt import encode_user_data_to_jwt
 
 
 template = Jinja2Templates(directory="./templates")
@@ -29,11 +30,11 @@ def user(req : Request):
 def user(req : Request,username : str = Form(), password_user: str = Form()):
     verify = check_user(username,password_user)
 
-    if verify:
-        print("no mamaste")
-        return template.TemplateResponse("user.html", {"request": req, "data_user": verify})
-    print("mamaste")
-    return RedirectResponse("/")
+    if not verify:
+        return RedirectResponse("/")
+    
+    token = encode_user_data_to_jwt(verify)
+    return template.TemplateResponse("user.html", {"request": req, "data_user": verify, "token" : token})
 
 @app.post("/data-processing")
 def data_processing(firstname : str = Form(), lastname : str = Form(), email : str = Form(), password_user : str = Form()
