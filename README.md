@@ -17,9 +17,9 @@ pip install -r requirements.txt
  
 ```json
 {
-    "kid": connectedAppSecretId,
-    "iss": connectedAppClientId,
-    "token": connectedAppSecretKey
+    "kid": "connectedAppSecretId",
+    "iss": "connectedAppClientId",
+    "token": "connectedAppSecretKey"
 }
 
 ```
