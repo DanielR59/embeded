@@ -1,21 +1,20 @@
-version: '3'
 services:
   db:
     image: 'postgres:13.7'
     restart: always
     environment:
       - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=superstore
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - '6666:5432'
+      - ${POSTGRES_PORT}:5432
       
     volumes:
-    - users_data:/var/lib/postgresql/data/ 
+    - my_app_users_data:/var/lib/postgresql/data/ 
+    - ./database_scripts/:/docker-entrypoint-initdb.d/
   
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:8.12.0
     environment:
       PGADMIN_DEFAULT_EMAIL : "admin@admin.com"
       PGADMIN_DEFAULT_PASSWORD : "admin"
@@ -24,4 +23,4 @@ services:
     depends_on:
       - db
 volumes:
-  users_data: # named volumes can be managed easier using docker-compose
+  my_app_users_data: # named volumes can be managed easier using docker-compose

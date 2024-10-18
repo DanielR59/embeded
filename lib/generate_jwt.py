@@ -1,25 +1,29 @@
 import jwt
 import datetime
 import uuid
-from .utils import load_keys
+from dotenv import load_dotenv
+import os
 
+client_id = os.getenv("CLIENT_ID")
+secret_id = os.getenv("SECRET_ID")
+secret_value = os.getenv("SECRET_VALUE")
 
-keys = load_keys('keys.json')
 
 def encode_user_data_to_jwt(data_user : str) -> str:
     return jwt.encode(
 	{
+		'iss': client_id,
 		"exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=5),
 		"jti": data_user[0],
 		"aud": "tableau",
 		"sub": data_user[-1],
 		"scp": ["tableau:views:embed"]
 	},
-		keys['token'],
+	 	secret_value,
 		algorithm = "HS256",
 		headers = {
-		'kid': keys['kid'],
-		'iss': keys['iss'],
+		'kid': secret_id,
+		'iss': client_id,
 		'alg': 'HS256'
         }
   )

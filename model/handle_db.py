@@ -1,10 +1,13 @@
 import psycopg2
 import uuid
-DB_NAME = "tableau-embeded"
-DB_USER = "postgres"
-DB_PASS = "postgres"
+from dotenv import load_dotenv
+import os
+load_dotenv()
+DB_NAME = "tableauembeded"
+DB_USER = os.getenv("POSTGRES_USER")
+DB_PASS = os.getenv("POSTGRES_PASSWORD")
 DB_HOST = "localhost"
-DB_PORT = "6666"
+DB_PORT = os.getenv("POSTGRES_PORT")
 
 class HandleDB():
     def __init__(self) -> None:

@@ -1,0 +1,22 @@
+.dr-card-container {
+    /* padding-left: 50px; */
+    width: 18rem; 
+    max-height: 28vh; 
+}
+.card-body{
+    max-height: 10vh;
+}
+.card{
+    /* padding-left: 50px; */
+}
+
+main {
+    /* border: 1px solid red; */
+    padding-left: 15px;
+}
+
+.row {
+    /* border: 1px solid #117e03; */
+    /* width: 100%; */
+    /* padding: 10px; */
+}

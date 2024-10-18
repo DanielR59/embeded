@@ -2,7 +2,7 @@
 
 -- DROP DATABASE IF EXISTS "tableau-embeded";
 
-CREATE DATABASE "tableau-embeded"
+CREATE DATABASE tableauembeded
     WITH
     OWNER = postgres
     ENCODING = 'UTF8'
@@ -12,7 +12,7 @@ CREATE DATABASE "tableau-embeded"
     CONNECTION LIMIT = -1;
 
 -- SCHEMA: metadata
-
+\c tableauembeded
 -- DROP SCHEMA IF EXISTS metadata ;
 
 CREATE SCHEMA IF NOT EXISTS metadata
