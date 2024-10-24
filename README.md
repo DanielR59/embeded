@@ -17,12 +17,13 @@ pip install -r requirements.txt
  
 ```env 
 
-POSTGRES_USER=user
-POSTGRES_PASSWORD=passw
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password123!
 POSTGRES_PORT=5432
 CLIENT_ID=client_id
 SECRET_ID=secret_id
 SECRET_VALUE=secret
+DASHBOARD_URL=https://prod-useast-c.online.tableau.com/t/sitio/views/Dashboard/Overview%
 ```
 
 
